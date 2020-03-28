@@ -61,7 +61,7 @@ for (var i=0; i<resolution; i++){
         colorbar: {
             autotick: false,
             tickvals: [0, 1],
-            ticktext: ['growth rate < 1', 'growth rate > 1']
+            ticktext: ['growth rate > 1', 'growth rate < 1']
         }
     };
 }
