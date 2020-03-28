@@ -1,5 +1,7 @@
 # Simple Disease Propagation Model 
 
+Contributors: Maxime Bouton, Lars Thorben Neustock, Emma Tran
+
 Run `index.html` in your browser or visit the [webpage](https://maximebouton.github.io/simple-pandemic-model/).
 
 **/!\ disclaimer:**
