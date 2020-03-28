@@ -7,16 +7,20 @@
     <link rel="stylesheet" href="latex.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 
 <body>
     <article>
-        <h1 id="tufte-css">Simple Pandemic Propagation Model</h1>
+        <h1 id="tufte-css">Simple Disease Propagation Model</h1>
 
         <section>
             <p>
-                contributors: Lars Thorben Neustock, Maxime Bouton, Emma Tran
+                Contributors: Lars Thorben Neustock, Maxime Bouton, Emma Tran
+            </p>
+            <p>
                 source code: <a href="https://github.com/MaximeBouton/simple-pandemic-model">https://github.com/MaximeBouton/simple-pandemic-model</a>
             </p>
         </section>
@@ -24,7 +28,7 @@
         <section>
             <h2> Introduction </h2>
             <p>
-                This is a simple pandemic model using a geometric serie.
+                This is a simple disease propagation model using a geometric serie.
                 The population of sick people grows according to an initial growth rate. 
                 In addition, there are two ways of diagnosing sick people: a low fidelity test
                 and a high fidelity test.
@@ -71,8 +75,34 @@
                 </div>
             </figure>
         </section>
-        <!-- <section>
-
-        </section> -->
+        <section>
+            <h2>Mathematical Model</h2>
+            <p>
+                To model the growth of the epidemic we used a geometric serie. 
+                Let \( s_t \) be the number of sick people at a given day \( t \). 
+                The number of sick people the next day is given by:
+                \[
+                s_{t+1} = g s_t
+                \]
+                where \( g \) is the initial growth rate of the disease. 
+            </p>
+            <p>
+                We supposed that two tests are possible: a high fidelity test and a low fidelity test.
+                They are characterized by two numbers each: \( \lambda_\text{lo}, \beta_\text{lo}, \lambda_\text{hi}, \beta_\text{hi} \).
+                The compliance, \(\lambda_\text{x} \), corresponds to the proportion of the sick people that can be tested. 
+                The success rate, \(\beta_{x} \), corresponds to the proportion of tested people that are diagnosed correctly. 
+                We assume that each day, a group of patient is tested using the high fidelity test first, and then another group of patient is tested using the low fidelity test.
+                Once a patient has been diagnosed, he is assumed to be quarantined and cannot contribute to the propagation of the disease anymore.
+                Given these assumptions we can update the growth model of the disease as follows:
+                \[
+                s_{t+1} = (1 - \lambda_\text{hi} \beta_\text{hi} - \lambda_\text{lo} \beta_\text{lo} (1 - \lambda_{hi})) g s_t
+                \] 
+                We say that the growth of the disease is controlled when the effective growth rate is smaller than 1 i.e. when more people are diagnosed than people getting sick.
+                The equation of the boundary between the red and green zone is then given by:
+                \[
+                    (1 - \lambda_\text{hi} \beta_\text{hi} - \lambda_\text{lo} \beta_\text{lo} (1 - \lambda_{hi})) \leq 1
+                \]
+            </p>
+        </section>
     </article>
 </body>
