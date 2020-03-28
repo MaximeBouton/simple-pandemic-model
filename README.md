@@ -1,6 +1,6 @@
-# Simple Pandemic Model 
+# Simple Disease Propagation Model 
 
-Run `pandemic_app.html` in your browser or visit the [webpage](https://maximebouton.github.io/simple-pandemic-model/).
+Run `index.html` in your browser or visit the [webpage](https://maximebouton.github.io/simple-pandemic-model/).
 
 **/!\ disclaimer:**
 This is a toy model using a geometric serie, it is not based on any scientific evidence but purely intuition. 
